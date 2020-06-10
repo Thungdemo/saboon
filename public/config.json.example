@@ -1,0 +1,4 @@
+var CONFIG = {
+	"url":"http://localhost/saboon/public",
+	"date_format": "DD-MM-YYYY",	
+};
