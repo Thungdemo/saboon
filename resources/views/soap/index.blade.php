@@ -13,6 +13,7 @@
                     <thead>
                         <tr>
                             <th>Name</th>
+                            <th>Ingredients</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -21,6 +22,7 @@
                         @foreach($soaps as $soap)
                         <tr>
                             <td>{{$soap->name}}</td>
+                            <td>{{$soap->getIngredients()}}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{route('soap.edit',$soap)}}">Edit</a>
                                 {!! Form::open(['url'=>route('soap.delete',$soap),'method'=>'delete','class'=>'inline-form confirm-delete']) !!}

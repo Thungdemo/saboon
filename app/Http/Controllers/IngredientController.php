@@ -100,6 +100,18 @@ class IngredientController extends Controller
      */
     public function destroy(Ingredient $ingredient)
     {
+        if($ingredient->purchases->count())
+        {
+            return redirect()->back()->with('alert.error','Unable to delete. Ingredient already has some purchases');
+        }
+        if($ingredient->consumption->count())
+        {
+            return redirect()->back()->with('alert.error','Unable to delete. Ingredient already used in some soap production');
+        }
+         if($ingredient->soap->count())
+        {
+            return redirect()->back()->with('alert.error','Unable to delete. Ingredient already used in some soaps');
+        }
         $ingredient->delete();
         return redirect()->back()->with('alert.success','Successfully deleted');
     }

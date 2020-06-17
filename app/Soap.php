@@ -21,4 +21,11 @@ class Soap extends Model
     	parent::delete();
     	DB::commit();
     }
+
+    public function getIngredients()
+    {
+        return $this->soapIngredients->map(function($soapIngredient){
+            return $soapIngredient->ingredient->name.'('.$soapIngredient->quantity.$soapIngredient->ingredient->quantityUnit->name.')';
+        })->implode(', ');
+    }
 }

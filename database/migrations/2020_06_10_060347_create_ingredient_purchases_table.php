@@ -13,7 +13,7 @@ class CreateIngredientPurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient_purchases', function (Blueprint $table) {
+        Schema::create('purchases', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('ingredient_id');
             $table->decimal('rate',12,2)->nullable();
@@ -34,6 +34,6 @@ class CreateIngredientPurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingredient_purchases');
+        Schema::dropIfExists('purchases');
     }
 }

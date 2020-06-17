@@ -13,12 +13,12 @@ trait Mutator {
 
     	if($this->isEncryptable($key))
     	{
-    		$this->attributes[$key] = encrypt($value);
+    		$this->attributes[$key] = $value ? encrypt($value) : null;
     	}
 
         if($this->isDatable($key))
         {
-            $this->attributes[$key] = Carbon::parse($value);
+            $this->attributes[$key] = $value ? Carbon::parse($value) : null;
         }
 
     	return $this;
@@ -49,7 +49,7 @@ trait Mutator {
 
         if($this->isDatable($key))
         {
-            $value = Carbon::parse($value)->format(config('soap.date_format','d-m-Y'));
+            $value = $value ? Carbon::parse($value)->format(config('soap.date_format','d-m-Y')) : null;
         }
 
     	return $value;

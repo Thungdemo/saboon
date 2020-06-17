@@ -14,6 +14,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Rate</th>
+                            <th>In Stock</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -23,6 +24,7 @@
                         <tr>
                             <td>{{$ingredient->name}}</td>
                             <td>{{$ingredient->rate ? $ingredient->rate_per_unit : '--'}}</td>
+                            <td>{{$ingredient->getQuantityAvailable().$ingredient->quantityUnit->name}}</td>
                             <td>
                                 <a class="btn btn-sm btn-primary" href="{{route('ingredient.edit',$ingredient)}}">Edit</a>
                                 {!! Form::open(['url'=>route('ingredient.delete',$ingredient),'method'=>'delete','class'=>'inline-form confirm-delete']) !!}

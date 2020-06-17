@@ -14,6 +14,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('vendor/jquery-3.4.1/jquery-3.4.1.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-mask/jquery-mask.min.js') }}"></script>
+    <script src="{{ asset('vendor/datepicker/datepicker.js') }}"></script>
     <script src="{{ asset('js/common.js') }}" defer></script>
     @stack('scripts')
     <!-- Fonts -->
@@ -23,6 +24,8 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/fontawesome-5.3.1/css/all.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/datepicker.css')}}">
     @stack('links')
 </head>
 <body>
@@ -44,10 +47,13 @@
                             <a class="nav-link" href="{{route('ingredient.index')}}">Ingredients</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('ingredient-purchase.index')}}">Purchases</a>
+                            <a class="nav-link" href="{{route('purchase.index')}}">Purchases</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{route('soap.index')}}">Soaps</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('soap-product.index')}}">Soaps Produced</a>
                         </li>
                     </ul>
                     @endif

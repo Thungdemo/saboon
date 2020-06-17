@@ -22,27 +22,27 @@
                     {!! Form::textarea('description',old('description'),['class'=>'form-control','rows'=>3]) !!}
                     <span class="error">{{$errors->first('description')}}</span>
                 </div>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
+                <div class="form-group">
+                    <table class="table table-bordered">
+                        <thead>
                             <tr>
-                                <th>Ingredient</th>
-                                <th>Amount Required</th>
-                                <th></th>
+                                <tr>
+                                    <th>Ingredient</th>
+                                    <th>Amount Required</th>
+                                    <th></th>
+                                </tr>
                             </tr>
-                        </tr>
-                    </thead>
-                    <tbody id="ingredient-row">
-                        @if($ingredientRows = old('ingredient'))
-                        @foreach($ingredientRows as $rowId => $row)
-                        @include('soap.add-ingredient',['rowId'=>$rowId])
-                        @endforeach
-                        @endif
-                        <tr>
-                            <td colspan="100"><button type="button" class="btn btn-sm btn-primary" id="add-ingredient">Add Ingredient</button></td>
-                        </tr>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody id="ingredient-row">
+                            @if($ingredientRows = old('ingredient'))
+                            @foreach($ingredientRows as $rowId => $row)
+                            @include('soap.add-ingredient',['rowId'=>$rowId])
+                            @endforeach
+                            @endif
+                        </tbody>
+                    </table>
+                    <button type="button" class="btn btn-sm btn-primary" id="add-ingredient"><span class="fa fa-plus"></span></button>
+                </div>
                 <button type="submit" class="btn btn-primary">Add</button>
                 {!! Form::close() !!}
             </div>

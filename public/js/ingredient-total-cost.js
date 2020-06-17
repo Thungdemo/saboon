@@ -4,7 +4,7 @@ $(document).ready(function(){
         if(ingredientId.length)
         {
             $.ajax({
-                url: CONFIG.url+'/ingredient-purchase/rate?ingredient_id='+ingredientId,
+                url: CONFIG.url+'/purchase/rate?ingredient_id='+ingredientId,
                 data: {ingredient_id:ingredientId},
                 dataType: 'json',
                 success: function(data){
